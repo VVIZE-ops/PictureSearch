@@ -3,6 +3,7 @@ package com.example.es.clients;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import com.example.es.config.CommonConfig;
+import com.klibisz.elastiknn.ElastiknnNearestNeighborsQueryBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
@@ -16,7 +17,6 @@ import org.elasticsearch.action.get.MultiGetResponse;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.search.SearchRequest;
-import org.elasticsearch.action.search.SearchRequestBuilder;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestClient;
@@ -24,20 +24,15 @@ import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.client.core.CountRequest;
 import org.elasticsearch.client.core.CountResponse;
-import org.elasticsearch.common.LocalTimeOffset;
 import org.elasticsearch.index.query.BoolQueryBuilder;
 import org.elasticsearch.index.query.QueryBuilder;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.SearchHits;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
-import org.elasticsearch.transport.Transport;
-import org.elasticsearch.transport.TransportChannel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import com.klibisz.elastiknn.models.*;
-import com.klibisz.elastiknn.*;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -72,7 +67,7 @@ public class EsRestUtils {
                     new UsernamePasswordCredentials("", ""));  //es账号密码
             client = new RestHighLevelClient(
                     RestClient.builder(
-                            new HttpHost("8.142.131.195", 9600, "http"))
+                            new HttpHost(hosts, 9600, "http"))
                             .setHttpClientConfigCallback(new RestClientBuilder.HttpClientConfigCallback() {
                                 @Override
                                 public HttpAsyncClientBuilder customizeHttpClient(HttpAsyncClientBuilder httpClientBuilder) {

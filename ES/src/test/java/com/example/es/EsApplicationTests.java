@@ -1,8 +1,5 @@
 package com.example.es;
 
-import cn.hutool.json.JSON;
-
-
 import cn.hutool.json.JSONArray;
 import com.example.es.clients.EsRestUtils;
 import com.example.es.service.AIServicel;

@@ -10,7 +10,7 @@ spring:
     active: dev
 
 common:
-  hosts: "8.142.131.195"
+  hosts: "127.0.0.0" #Es地址
   port: 9601
   username: "zlw-es"
 
