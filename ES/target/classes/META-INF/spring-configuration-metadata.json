@@ -1,0 +1,27 @@
+{
+  "groups": [
+    {
+      "name": "common",
+      "type": "com.example.es.config.CommonConfig",
+      "sourceType": "com.example.es.config.CommonConfig"
+    }
+  ],
+  "properties": [
+    {
+      "name": "common.hosts",
+      "type": "java.lang.String",
+      "sourceType": "com.example.es.config.CommonConfig"
+    },
+    {
+      "name": "common.port",
+      "type": "java.lang.Integer",
+      "sourceType": "com.example.es.config.CommonConfig"
+    },
+    {
+      "name": "common.username",
+      "type": "java.lang.String",
+      "sourceType": "com.example.es.config.CommonConfig"
+    }
+  ],
+  "hints": []
+}

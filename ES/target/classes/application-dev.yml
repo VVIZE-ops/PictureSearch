@@ -1,0 +1,6 @@
+elasticsearch:
+  hosts: 8.142.131.195:9601
+  httpHost: 8.142.131.195
+  port: 9601
+  sslEnabled: false
+  xpackEnable: false
