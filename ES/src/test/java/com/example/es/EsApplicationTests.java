@@ -35,12 +35,12 @@ class EsApplicationTests {
     protected  void testGetTermsAgg2() {
         EsRestUtils esRestUtils = new EsRestUtils();
         //构建query条件
-        SearchRequest searchRequest = new SearchRequest("zlw_test");
+        SearchRequest searchRequest = new SearchRequest("test");
         QueryBuilder queryBuilder = new MatchAllQueryBuilder();
         //query条件作为查询条件,size表示返回结果的条数
         SearchSourceBuilder builder = new SearchSourceBuilder().query(queryBuilder).size(10);
         searchRequest.source(builder).searchType(SearchType.DEFAULT);
-        String index = "zlw_test";
+        String index = "test";
         try {
           long total  = esRestUtils.count(queryBuilder, index);
 
@@ -77,7 +77,7 @@ class EsApplicationTests {
 
         Map vector = aiServicel.getVector(mainBody, url);
 //        String index = "picture-search-test";
-        String index = "zlw-picture-search";
+        String index = "picture-search";
         List vecs = Collections.singletonList(vector.get("res"));
 
         List tes = new ArrayList();
@@ -117,7 +117,7 @@ class EsApplicationTests {
 
         Map vector = aiServicel.getVector(mainBody, url);
 //        String index = "picture-search-test";
-        String index = "zlw-picture-search";
+        String index = "picture-search";
 //        String index = "picture-search-11";
         List vecs = Collections.singletonList(vector.get("res"));
         JSONArray r = new JSONArray();

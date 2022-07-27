@@ -12,6 +12,6 @@ spring:
 common:
   hosts: "127.0.0.0" #Es地址
   port: 9601
-  username: "zlw-es"
+  username: "es"
 
 
